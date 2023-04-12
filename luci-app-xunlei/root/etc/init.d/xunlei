@@ -1,0 +1,44 @@
+#!/bin/sh /etc/rc.common
+
+START=99
+USE_PROCD=1
+PROG=/usr/share/xunlei/xunlei
+
+get_config() {
+	config_get_bool enabled $1 enabled 0
+	config_get port $1 port 5051
+	config_get download_dir $1 download_dir "/mnt"
+}
+
+start_service() {
+	config_load xunlei
+	config_foreach get_config xunlei
+	[ $enabled -ne 1 ] && return 1
+
+	# init
+	rm -rf /var/packages/pan-xunlei-com
+	mkdir -p /var/packages/pan-xunlei-com/target/var
+	ln -s /usr/share/xunlei/bin/version /var/packages/pan-xunlei-com/target/
+	ln -s /usr/share/xunlei/bin/xunlei-pan-cli-launcher /var/packages/pan-xunlei-com/target/
+	ln -s /usr/share/xunlei/bin/xunlei-pan-cli-web /var/packages/pan-xunlei-com/target/
+	ln -s /usr/share/xunlei/bin/xunlei-pan-cli.* /var/packages/pan-xunlei-com/target/
+	echo "{\"port\":$port, \"internal\": false, \"dir\": \"$download_dir\"}" > /etc/xunlei/config.json
+
+	procd_open_instance
+	procd_set_param command $PROG
+	procd_append_param command run
+	procd_set_param stdout 0
+	procd_set_param stderr 0
+	procd_set_param respawn
+	procd_close_instance
+}
+
+service_triggers() {
+	procd_add_reload_trigger "xunlei"
+}
+
+reload_service() {
+	stop
+	sleep 3
+	start
+}

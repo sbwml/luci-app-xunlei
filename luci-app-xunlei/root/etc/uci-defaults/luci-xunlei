@@ -1,0 +1,11 @@
+#!/bin/sh
+
+uci -q batch <<-EOF >/dev/null
+	delete ucitrack.@xunlei[-1]
+	add ucitrack xunlei
+	set ucitrack.@alist[-1].init=xunlei
+	commit ucitrack
+EOF
+
+rm -rf /tmp/luci-*
+exit 0

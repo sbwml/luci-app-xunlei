@@ -1,0 +1,26 @@
+msgid "Xunlei"
+msgstr "迅雷下载"
+
+msgid "NAS Xunlei DSM 7.x Beta Version"
+msgstr "NAS 迅雷下载 DSM 7.x 内测版"
+
+msgid "Enabled"
+msgstr "启用"
+
+msgid "RUNNING"
+msgstr "运行中"
+
+msgid "NOT RUNNING"
+msgstr "未运行"
+
+msgid "Collecting data..."
+msgstr "收集数据..."
+
+msgid "Open Web Interface"
+msgstr "打开 Web 界面"
+
+msgid "Port"
+msgstr "端口"
+
+msgid "Default Download Path"
+msgstr "默认下载目录"

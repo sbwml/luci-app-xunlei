@@ -1,0 +1,5 @@
+
+config xunlei
+	option 'enabled' '0'
+	option 'port' '5051'
+	option 'download_dir' '/mnt'

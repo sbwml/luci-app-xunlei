@@ -1,0 +1,26 @@
+<script type="text/javascript">//<![CDATA[
+	XHR.poll(5, '<%=url("admin/services/xunlei/status")%>', null,
+		function(x, data)
+		{
+			var tb = document.getElementById('xunlei_status');
+			if (data && tb)
+			{
+				if (data.running)
+				{
+					tb.innerHTML = '<em style=\"color:green\"><b><%:Xunlei%> <%:RUNNING%></b></em>' + "<input class=\"cbi-button cbi-button-reload mar-10\" type=\"button\" value=\" <%:Open Web Interface%> \" onclick=\"window.open('//" + window.location.hostname + ":" + <%=luci.sys.exec("uci -q get xunlei.@xunlei[0].port"):gsub("^%s*(.-)%s*$", "%1")%> + "/')\"/>";
+				}
+				else
+				{
+					tb.innerHTML = '<em style=\"color:red\"><b><%:Xunlei%> <%:NOT RUNNING%></b></em>';
+				}
+			}
+		}
+	);
+//]]></script>
+
+<style>.mar-10 {margin-left: 50px; margin-right: 10px;}</style>
+<fieldset class="cbi-section">
+	<p id="xunlei_status">
+		<em><b><%:Collecting data...%></b></em>
+	</p>
+</fieldset>
