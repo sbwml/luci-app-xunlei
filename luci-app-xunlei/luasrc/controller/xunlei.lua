@@ -8,11 +8,11 @@ function index()
 		return
 	end
 
-	local page = entry({"admin", "services", "xunlei"}, cbi("xunlei"), _("Xunlei"), 100)
+	local page = entry({"admin", "nas", "xunlei"}, cbi("xunlei"), _("Xunlei"), 100)
 	page.dependent = true
 	page.acl_depends = { "luci-app-xunlei" }
 
-	entry({"admin", "services", "xunlei", "status"}, call("act_status")).leaf = true
+	entry({"admin", "nas", "xunlei", "status"}, call("act_status")).leaf = true
 end
 
 function act_status()
