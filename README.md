@@ -1,6 +1,6 @@
 # NAS Xunlei Beta - OpenWrt Ported Version
 
-Only support **aarch64_generic** platform.
+Only support **aarch64_generic / x86_64** platform.
 
 ### Invitation code: https://docs.qq.com/form/page/DQUJXZUdtRlNGWkxr
 
