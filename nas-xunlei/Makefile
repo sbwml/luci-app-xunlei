@@ -7,15 +7,20 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=nas-xunlei
-PKG_VERSION:=3.5.2
+PKG_VERSION:=3.5.2-1
 PKG_RELEASE:=2
-
 STRIP:=false
 
+ifeq ($(ARCH),aarch64)
+	BIN_HASH:=0eddfd3c3810b014181b6d405ca56544579e3b245623465e0afd9b292b34104d
+endif
+
+ifeq ($(ARCH),x86_64)
+	BIN_HASH:=
+endif
+
 PKG_MAINTAINER:=sbwml <admin@cooluc.com>
-
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
-
 include $(INCLUDE_DIR)/package.mk
 
 define Package/$(PKG_NAME)
@@ -28,7 +33,7 @@ define Package/$(PKG_NAME)
 endef
 
 define Package/$(PKG_NAME)/description
-  NAS XunLei
+  NAS Thunder download service
 endef
 
 define Package/$(PKG_NAME)/postrm
@@ -39,15 +44,15 @@ endef
 
 define Download/$(PKG_NAME)
   URL:=https://github.com/sbwml/nas-xunlei-binary/releases/download/v$(PKG_VERSION)
-  URL_FILE:=$(ARCH)-v$(PKG_VERSION).tar.gz
-  FILE:=nas-xunlei-$(ARCH)-v$(PKG_VERSION).tar.gz
-  HASH:=641d2c03d904c463c8d04a134c68f7dfea12e98c865736701f6a28c484b4bbed
+  URL_FILE:=$(ARCH)-v$(PKG_VERSION).tar.xz
+  FILE:=nas-xunlei-$(ARCH)-v$(PKG_VERSION).tar.xz
+  HASH:=$(BIN_HASH)
 endef
 
 define Build/Prepare
 	$(call Build/Prepare/Default)
 	$(eval $(call Download,$(PKG_NAME)))
-	$(TAR) -xzf $(DL_DIR)/nas-xunlei-$(ARCH)-v$(PKG_VERSION).tar.gz -C $(PKG_BUILD_DIR)/
+	$(TAR) -xf $(DL_DIR)/nas-xunlei-$(ARCH)-v$(PKG_VERSION).tar.xz -C $(PKG_BUILD_DIR)/
 endef
 
 define Build/Compile
