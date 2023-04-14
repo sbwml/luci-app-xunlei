@@ -43,12 +43,14 @@ jobs:
           tree bin/packages/
           cd ..
           PACKAGE_TARGET="$(find openwrt-sdk/bin/ | grep luci-app-xunlei)"
-          I18N_TARGET="$(find openwrt-sdk/bin/ | grep luci-i18n-xunlei)"
-          echo "PACKAGE_TARGET=$(pwd)/$PACKAGE_TARGET"
-          echo "I18N_TARGET=$(pwd)/$I18N_TARGET"
+          PACKAGE_I18N_TARGET="$(find openwrt-sdk/bin/ | grep luci-i18n-xunlei)"
+          PACKAGE_XUNLEI="$(find openwrt-sdk/bin/ | grep nas-xunlei)"
+          PACKAGE_LIBC="$(find openwrt-sdk/bin/ | grep libc6-compat)"
           echo 'JSON_RESPONSE<<EOF' >> $GITHUB_OUTPUT
           echo "$PACKAGE_TARGET" >> $GITHUB_OUTPUT
-          echo "$I18N_TARGET" >> $GITHUB_OUTPUT
+          echo "$PACKAGE_I18N_TARGET" >> $GITHUB_OUTPUT
+          echo "$PACKAGE_XUNLEI" >> $GITHUB_OUTPUT
+          echo "$PACKAGE_LIBC" >> $GITHUB_OUTPUT
           echo 'EOF' >> $GITHUB_OUTPUT
           echo "status=success" >> $GITHUB_OUTPUT
       - name: Get tag
