@@ -2,6 +2,7 @@
 
 Only support **aarch64_generic** platform.
 
+原项目：https://github.com/sbwml/luci-app-xunlei
 ### Invitation code: https://docs.qq.com/form/page/DQUJXZUdtRlNGWkxr
 
 ------------
