@@ -18,7 +18,7 @@ start_service() {
 
 	# init
 	rm -rf /var/packages/pan-xunlei-com
-	mkdir -p /var/packages/pan-xunlei-com/target/var
+	mkdir -p /var/packages/pan-xunlei-com/target/var $config_path
 	ln -s /usr/share/xunlei/bin/version /var/packages/pan-xunlei-com/target/
 	ln -s /usr/share/xunlei/bin/xunlei-pan-cli-launcher /var/packages/pan-xunlei-com/target/
 	ln -s /usr/share/xunlei/bin/xunlei-pan-cli-web /var/packages/pan-xunlei-com/target/
