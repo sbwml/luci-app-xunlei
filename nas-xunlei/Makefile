@@ -16,7 +16,7 @@ ifeq ($(ARCH),aarch64)
 endif
 
 ifeq ($(ARCH),x86_64)
-	BIN_HASH:=
+	BIN_HASH:=cab611b1088c1644d0e55c8f8f225e5011e2079afe57b473a9e99d5376adb054
 endif
 
 PKG_MAINTAINER:=sbwml <admin@cooluc.com>
@@ -28,7 +28,7 @@ define Package/$(PKG_NAME)
   CATEGORY:=Network
   SUBMENU:=Web Servers/Proxies
   TITLE:=nas-xunlei
-  DEPENDS:=@aarch64 +USE_MUSL:libc6-compat +USE_GLIBC:librt +USE_GLIBC:libpthread +libgcc +libstdcpp
+  DEPENDS:=@(aarch64||x86_64) +USE_MUSL:libc6-compat +USE_GLIBC:librt +USE_GLIBC:libpthread +libgcc +libstdcpp
   URL:=https://nas.xunlei.com/
 endef
 
