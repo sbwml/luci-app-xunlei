@@ -18,7 +18,7 @@ define Package/$(PKG_NAME)
 	SECTION:=libs
 	CATEGORY:=Libraries
 	TITLE:=libc6-compat
-	DEPENDS:=@USE_MUSL
+	DEPENDS:=@(aarch64||x86_64) @USE_MUSL
 	URL:=https://www.gnu.org/software/libc/
 endef
 
