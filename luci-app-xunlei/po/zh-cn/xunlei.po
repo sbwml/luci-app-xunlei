@@ -22,5 +22,8 @@ msgstr "打开 Web 界面"
 msgid "Port"
 msgstr "端口"
 
+msgid "Data Storage Path"
+msgstr "数据储存路径"
+
 msgid "Default Download Path"
-msgstr "默认下载目录"
+msgstr "默认下载路径"

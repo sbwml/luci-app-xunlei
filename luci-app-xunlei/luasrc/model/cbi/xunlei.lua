@@ -14,7 +14,11 @@ o.rmempty = false
 
 o = s:option(Value, "port", translate("Port"))
 o.datatype = "and(port,min(1))"
+o.default = "5051"
 o.rmempty = false
+
+o = s:option(Value, "config_path", translate("Data Storage Path"))
+o.default = "/etc/xunlei"
 
 o = s:option(Value, "download_dir", translate("Default Download Path"))
 o.default = "/mnt"
