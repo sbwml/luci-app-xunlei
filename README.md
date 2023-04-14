@@ -21,10 +21,6 @@ Only support **aarch64_generic** platform.
 
 ------------
 
-![image](https://user-images.githubusercontent.com/16485166/231182209-e45c2a65-8d44-4727-bcc3-5ec413864222.png)
-
-![image](https://user-images.githubusercontent.com/16485166/231182422-5715f542-8735-4c89-ad15-1d4684317ede.png)
-
-![image](https://user-images.githubusercontent.com/16485166/231191857-162772e5-05f7-4500-8fa2-7019ece7b977.png)
-
-![image](https://user-images.githubusercontent.com/16485166/231191996-2eaad794-c41b-45c7-8c35-7ba879818aed.png)
+![image](https://user-images.githubusercontent.com/51810656/231944247-99622621-5716-40cf-9ac2-71b23eb05e17.png)
+![image](https://user-images.githubusercontent.com/51810656/231944314-60964746-28bb-45b7-b84c-d291fe2957ab.png)
+![image](https://user-images.githubusercontent.com/51810656/231944208-91b4aa2f-3cf4-465e-b848-2ca5a5dcd3e7.png)
