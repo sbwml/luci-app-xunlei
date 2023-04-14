@@ -18,24 +18,30 @@ define Package/$(PKG_NAME)
 	SECTION:=libs
 	CATEGORY:=Libraries
 	TITLE:=libc6-compat
-	DEPENDS:=@USE_MUSL @aarch64
+	DEPENDS:=@USE_MUSL
 	URL:=https://www.gnu.org/software/libc/
 endef
 
 define Package/$(PKG_NAME)/description
-  compatibility libraries for glibc
+  Compatibility libraries for glibc
 endef
 
 define Build/Compile
 endef
 
 define Package/$(PKG_NAME)/install
+ifeq ($(ARCH),aarch64)
 	$(INSTALL_DIR) $(1)/lib
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/lib/ld-linux-aarch64.so.1 $(1)/lib/
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/lib/libc.so.6 $(1)/lib/
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/lib/libdl.so.2 $(1)/lib/
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/lib/libm.so.6 $(1)/lib/
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/lib/libpthread.so.0 $(1)/lib/
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/aarch64/ld-linux-aarch64.so.1 $(1)/lib/
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/aarch64/libc.so.6 $(1)/lib/
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/aarch64/libdl.so.2 $(1)/lib/
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/aarch64/libm.so.6 $(1)/lib/
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/aarch64/libpthread.so.0 $(1)/lib/
+endif
+ifeq ($(ARCH),x86_64)
+	$(INSTALL_DIR) $(1)/usr/libc6-compat
+	$(CP) $(PKG_BUILD_DIR)/x86_64/libc6_x86-64.so $(1)/usr/libc6-compat/
+endif
 endef
 
 $(eval $(call BuildPackage,$(PKG_NAME)))
