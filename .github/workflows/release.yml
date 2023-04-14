@@ -27,10 +27,10 @@ jobs:
           ulimit -a
       - name: Download SDK
         run: |
-          wget https://archive.openwrt.org/releases/18.06.9/targets/x86/64/openwrt-sdk-18.06.9-x86-64_gcc-7.3.0_musl.Linux-x86_64.tar.xz
-          xz -d openwrt-sdk-18.06.9-x86-64_gcc-7.3.0_musl.Linux-x86_64.tar.xz
-          tar -xf openwrt-sdk-18.06.9-x86-64_gcc-7.3.0_musl.Linux-x86_64.tar
-          mv openwrt-sdk-18.06.9-x86-64_gcc-7.3.0_musl.Linux-x86_64 openwrt-sdk
+          wget https://downloads.openwrt.org/releases/22.03.2/targets/rockchip/armv8/openwrt-sdk-22.03.2-rockchip-armv8_gcc-11.2.0_musl.Linux-x86_64.tar.xz
+          xz -d openwrt-sdk-22.03.2-rockchip-armv8_gcc-11.2.0_musl.Linux-x86_64.tar.xz
+          tar -xf openwrt-sdk-22.03.2-rockchip-armv8_gcc-11.2.0_musl.Linux-x86_64.tar
+          mv openwrt-sdk-22.03.2-rockchip-armv8_gcc-11.2.0_musl.Linux-x86_64 openwrt-sdk
       - name: Build
         id: build
         run: | 
@@ -40,6 +40,7 @@ jobs:
           echo "CONFIG_PACKAGE_luci-app-xunlei=y" >> .config
           make defconfig
           make package/luci-app-xunlei/compile V=s -j$(nproc)
+          tree bin/packages/
           cd ..
           PACKAGE_TARGET="$(find openwrt-sdk/bin/ | grep luci-app-xunlei)"
           I18N_TARGET="$(find openwrt-sdk/bin/ | grep luci-i18n-xunlei)"
