@@ -8,7 +8,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=nas-xunlei
 PKG_VERSION:=3.5.2-1
-PKG_RELEASE:=4
+PKG_RELEASE:=5
 STRIP:=false
 
 ifeq ($(ARCH),aarch64)
@@ -16,7 +16,7 @@ ifeq ($(ARCH),aarch64)
 endif
 
 ifeq ($(ARCH),x86_64)
-	BIN_HASH:=845e9854781862d2a4ac63fe3c7f94dc768bfa0e36293d5f0d2d4d617fc41e36
+	BIN_HASH:=676bf138f079db0267a5f4eceee818e606408641a4fb488473a72b7dfb1ecbfb
 endif
 
 PKG_MAINTAINER:=sbwml <admin@cooluc.com>
