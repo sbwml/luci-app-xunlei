@@ -26,6 +26,20 @@ define Package/$(PKG_NAME)/description
   Compatibility libraries for glibc
 endef
 
+define Package/$(PKG_NAME)/postrm
+#!/bin/sh
+ARCH=$(uname -m)
+if [ "$ARCH" = "aarch64" ]; then
+  LD=ld-linux-aarch64.so.1
+else
+  LD=ld-linux-x86-64.so.2
+fi
+[ -L "/lib/$LD" ] && rm -f /lib/$LD
+[ $(grep -qs '/libc6' /proc/mounts) ] && umount /libc6
+rm -rf /libc6
+exit 0
+endef
+
 define Build/Compile
 endef
 
