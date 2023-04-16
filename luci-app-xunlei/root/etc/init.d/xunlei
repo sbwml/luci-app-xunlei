@@ -23,7 +23,7 @@ start_service() {
 	ln -s /usr/share/xunlei/bin/xunlei-pan-cli-launcher /var/packages/pan-xunlei-com/target/
 	ln -s /usr/share/xunlei/bin/xunlei-pan-cli-web /var/packages/pan-xunlei-com/target/
 	ln -s /usr/share/xunlei/bin/xunlei-pan-cli.* /var/packages/pan-xunlei-com/target/
-	echo "{\"port\":$port, \"internal\": false, \"dir\": \"$download_dir\"}" > $config_path/config.json
+	echo "{\"port\":$port, \"internal\": false, \"download\": \"$download_dir\"}" > $config_path/config.json
 
 	procd_open_instance
 	procd_set_param command $PROG
