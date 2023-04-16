@@ -30,21 +30,8 @@ define Build/Compile
 endef
 
 define Package/$(PKG_NAME)/install
-
-ifeq ($(ARCH),aarch64)
-	$(INSTALL_DIR) $(1)/lib
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/aarch64/ld-linux-aarch64.so.1 $(1)/lib/
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/aarch64/libc.so.6 $(1)/lib/
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/aarch64/libdl.so.2 $(1)/lib/
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/aarch64/libm.so.6 $(1)/lib/
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/aarch64/libpthread.so.0 $(1)/lib/
-endif
-
-ifeq ($(ARCH),x86_64)
 	$(INSTALL_DIR) $(1)/usr/libc6-compat
-	$(CP) $(PKG_BUILD_DIR)/x86_64/libc6_x86-64.so $(1)/usr/libc6-compat/
-endif
-
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/$(ARCH)/libc6_$(ARCH).so $(1)/usr/libc6-compat/libc6.so
 endef
 
 $(eval $(call BuildPackage,$(PKG_NAME)))
