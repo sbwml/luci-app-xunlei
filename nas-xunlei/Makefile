@@ -63,8 +63,7 @@ define Package/$(PKG_NAME)/install
 	$(CP) $(PKG_BUILD_DIR)/bin $(1)/usr/share/xunlei/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/xunlei $(1)/usr/share/xunlei/xunlei
 
-	$(INSTALL_DIR) $(1)/usr/syno/synoman/webman/modules $(1)/etc
-	$(INSTALL_CONF) $(CURDIR)/files/synoinfo.conf $(1)/etc/synoinfo.conf
+	$(INSTALL_DIR) $(1)/usr/syno/synoman/webman/modules
 	$(INSTALL_BIN) $(CURDIR)/files/authenticate.cgi $(1)/usr/syno/synoman/webman/modules/authenticate.cgi
 
 	$(INSTALL_DIR) $(1)/usr/share/xunlei/hack
