@@ -7,5 +7,7 @@ uci -q batch <<-EOF >/dev/null
 	commit ucitrack
 EOF
 
+[ ! -f /etc/synoinfo.conf ] && echo "unique=\"synology_$(cat /proc/sys/kernel/random/uuid | cut -c1-7)_720+\"" > /etc/synoinfo.conf
+
 rm -rf /tmp/luci-*
 exit 0
