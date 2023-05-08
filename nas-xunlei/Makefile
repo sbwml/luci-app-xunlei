@@ -7,16 +7,16 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=nas-xunlei
-PKG_VERSION:=3.5.2-2
-PKG_RELEASE:=5
+PKG_VERSION:=3.5.2-3
+PKG_RELEASE:=6
 STRIP:=false
 
 ifeq ($(ARCH),aarch64)
-	BIN_HASH:=b65e56ca4749d0fab18f2a1c0d37edec9377205fe3d94033c2ac316557ea4f10
+	BIN_HASH:=13293e0365b9b5a933ee5a3d72c014337e8a07cd7759bfb4656caf794926dfcb
 endif
 
 ifeq ($(ARCH),x86_64)
-	BIN_HASH:=8ecb2329c9a318d37e5c8a59bf9cfd71138df7e3fab91c888f0e7a30931bebaa
+	BIN_HASH:=3f7301dc6183321d3a28f0bce2fdfb6695ac5b3ddf43f876810a00e0db8de386
 endif
 
 PKG_MAINTAINER:=sbwml <admin@cooluc.com>
@@ -28,7 +28,7 @@ define Package/$(PKG_NAME)
   CATEGORY:=Network
   SUBMENU:=Web Servers/Proxies
   TITLE:=nas-xunlei
-  DEPENDS:=@(aarch64||x86_64) @USE_MUSL +libc6-compat +libgcc +libstdcpp
+  DEPENDS:=@(aarch64||x86_64) +USE_MUSL:libc6-compat +USE_GLIBC:libpthread +libgcc +libstdcpp
   URL:=https://nas.xunlei.com/
 endef
 
@@ -66,11 +66,14 @@ define Package/$(PKG_NAME)/install
 	$(INSTALL_DIR) $(1)/usr/syno/synoman/webman/modules
 	$(INSTALL_BIN) $(CURDIR)/files/authenticate.cgi $(1)/usr/syno/synoman/webman/modules/authenticate.cgi
 
+ifeq ($(CONFIG_USE_MUSL),y)
 	$(INSTALL_DIR) $(1)/usr/share/xunlei/hack
 	$(CP) $(PKG_BUILD_DIR)/hack/libc.so.6 $(1)/usr/share/xunlei/hack/
 	$(CP) $(PKG_BUILD_DIR)/hack/libdl.so.2 $(1)/usr/share/xunlei/hack/
 	$(CP) $(PKG_BUILD_DIR)/hack/libm.so.6 $(1)/usr/share/xunlei/hack/
 	$(CP) $(PKG_BUILD_DIR)/hack/libpthread.so.0 $(1)/usr/share/xunlei/hack/
+endif
+
 endef
 
 $(eval $(call BuildPackage,$(PKG_NAME)))
