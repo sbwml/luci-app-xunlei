@@ -20,10 +20,10 @@ Only support **aarch64_generic / x86_64** platform.
 
 ------------
 
-![image](https://user-images.githubusercontent.com/16485166/231182209-e45c2a65-8d44-4727-bcc3-5ec413864222.png)
+![1](https://github.com/sbwml/luci-app-xunlei/assets/16485166/865399fe-f5c1-432b-a5a0-cb463c34d3e4)
 
-![image](https://user-images.githubusercontent.com/16485166/231182422-5715f542-8735-4c89-ad15-1d4684317ede.png)
+![2](https://github.com/sbwml/luci-app-xunlei/assets/16485166/c679a2b2-08f7-4bbc-8fba-3fee68816e9d)
 
-![image](https://user-images.githubusercontent.com/16485166/231191857-162772e5-05f7-4500-8fa2-7019ece7b977.png)
+![3](https://github.com/sbwml/luci-app-xunlei/assets/16485166/aa16bca1-45d1-4bd2-8478-7e3aeb9f004f)
 
-![image](https://user-images.githubusercontent.com/16485166/231191996-2eaad794-c41b-45c7-8c35-7ba879818aed.png)
+![4](https://github.com/sbwml/luci-app-xunlei/assets/16485166/78c04829-0abe-40b5-8a76-f561ab70a592)
