@@ -2,7 +2,7 @@
 
 Only support **aarch64_generic / x86_64** platform.
 
-### Invitation code: https://docs.qq.com/form/page/DQUJXZUdtRlNGWkxr
+### Invitation code: 网心超牛
 
 ------------
 

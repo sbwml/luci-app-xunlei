@@ -4,6 +4,9 @@ msgstr "迅雷下载"
 msgid "NAS Xunlei DSM 7.x Beta Version"
 msgstr "NAS 迅雷下载 DSM 7.x 内测版"
 
+msgid "Invitation code:"
+msgstr "邀请码："
+
 msgid "Enabled"
 msgstr "启用"
 
