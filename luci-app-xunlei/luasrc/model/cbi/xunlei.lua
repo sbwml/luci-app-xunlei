@@ -17,6 +17,14 @@ o.datatype = "and(port,min(1))"
 o.default = "5051"
 o.rmempty = false
 
+o = s:option(Value, "username", translate("Username"))
+o.datatype = "string"
+
+o = s:option(Value, "password", translate("Password"))
+o.description = translate("Leave blank to disable auth")
+o.datatype = "string"
+o.password = true
+
 o = s:option(Value, "config_path", translate("Data Storage Path"))
 o.default = "/etc/xunlei"
 

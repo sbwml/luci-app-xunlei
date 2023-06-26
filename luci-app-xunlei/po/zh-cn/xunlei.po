@@ -25,6 +25,15 @@ msgstr "打开 Web 界面"
 msgid "Port"
 msgstr "端口"
 
+msgid "Username"
+msgstr "用户名"
+
+msgid "Password"
+msgstr "密码"
+
+msgid "Leave blank to disable auth"
+msgstr "留空则禁用身份验证"
+
 msgid "Data Storage Path"
 msgstr "数据储存路径"
 
