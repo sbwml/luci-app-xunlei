@@ -2,7 +2,12 @@
 
 START=99
 USE_PROCD=1
-PROG=/usr/share/xunlei/xunlei
+
+if [[ "$(ldd --version 2>&1)" == *"musl"* ]]; then
+	PROG=/usr/share/xunlei/xunlei
+else
+	PROG=/usr/share/xunlei/bin/xunlei-pan-cli-daemon
+fi
 
 get_config() {
 	config_get_bool enabled $1 enabled 0
